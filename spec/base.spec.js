@@ -5,7 +5,7 @@ var assert      = require('assert'),
 var KmsJwt      = require('../index.js'),
     testEnvVars = require('./test.env.inc.js');
 
-var kmsArn = 'arn:aws:kms:us-east-1:286551237558:key/65710878-2067-49c4-a540-2c787ed9de77',
+var kmsArn = '',
     signingKey = "",
     pubicKey = 'somesimplekindofkeywhichdoesnothing';
 
@@ -22,7 +22,7 @@ describe('Base Tests',function(){
             keyArn: kmsArn
         });
 
-        kmsJwt.encrypt(pubicKey,function(err,data){
+        kmsJwt.createSigningKey(pubicKey,function(err, data){
             signingKey = data;
             assert(err == null,'');
             done();

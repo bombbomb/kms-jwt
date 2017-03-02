@@ -14,7 +14,7 @@ function KmsJwt(options)
 
 }
 
-KmsJwt.prototype.encrypt = function(publicKey, callback)
+KmsJwt.prototype.createSigningKey = function(publicKey, callback)
 {
     try
     {
@@ -22,7 +22,7 @@ KmsJwt.prototype.encrypt = function(publicKey, callback)
             Plaintext: publicKey,
             KeyId: this.keyArn
         };
-        this.kms.encrypt(params,function(err,data){
+        this.kms.encrypt(params,function(err, data){
             var result = null;
             if (!err && data.CiphertextBlob)
             {
@@ -71,7 +71,7 @@ KmsJwt.prototype.verify = function(token, callback)
             var decoded = jwt.verify(token, self.publicKey);
             if (decoded.hasOwnProperty('exp') && decoded.exp < Date.now()/1000)
             {
-                callback("JWT token expired",null);
+                callback("JWT token expired", decoded);
             }
             else
             {
@@ -80,7 +80,7 @@ KmsJwt.prototype.verify = function(token, callback)
         }
         catch (e)
         {
-            callback(e.message);
+            callback(e.message,null);
         }
     };
 

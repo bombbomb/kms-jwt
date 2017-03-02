@@ -44,16 +44,13 @@ KmsJwt.prototype.retrievePublicKey = function(token, callback)
     try
     {
         var self = this;
-        if (this.keyArn)
-        {
-            this.kms.decrypt({ CiphertextBlob : new Buffer(this.signingKey, 'base64') },function(err,data){
-                if (!err)
-                {
-                    self.publicKey = data.Plaintext.toString();
-                }
-                callback(err,data);
-            });
-        }
+        this.kms.decrypt({ CiphertextBlob : new Buffer(this.signingKey, 'base64') },function(err,data){
+            if (!err)
+            {
+                self.publicKey = data.Plaintext.toString();
+            }
+            callback(err,data);
+        });
     }
     catch(e)
     {

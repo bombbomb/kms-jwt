@@ -1,0 +1,5 @@
+process.env = {
+    AWS_REGION: 'us-east-1',
+    AWS_ACCESS_KEY: '',
+    AWS_SECRET_KEY: ''
+};

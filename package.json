@@ -1,6 +1,6 @@
 {
   "name": "kms-jwt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "validate/decrypt/encrypt jwt with keys from aws kms",
   "main": "index.js",
   "scripts": {

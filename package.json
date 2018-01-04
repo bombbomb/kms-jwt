@@ -23,7 +23,7 @@
   "homepage": "https://github.com/bombbomb/kms-jwt#readme",
   "dependencies": {
     "aws-sdk": "^2.22.0",
-    "jsonwebtoken": "^4.2.2"
+    "jsonwebtoken": "^8.1.0"
   },
   "devDependencies": {
     "mocha": "^3.2.0",

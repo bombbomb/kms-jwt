@@ -14,7 +14,7 @@ function createV2JwtPayload() {
   return {
     "aud": "DevSiteApiClient",
     "jti": "blahblahblahblahblahblahblahblah",
-    "nbf": (Date.now() / 1000) + 60,
+    "nbf": (Date.now() / 1000) - 60,
     "exp": (Date.now() / 1000) + 60,
     "sub": "Random-User-Id",
     "scopes": [

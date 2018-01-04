@@ -4,7 +4,8 @@
   "description": "validate/decrypt/encrypt jwt with keys from aws kms",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha test",
+    "testKms": "mocha spec/kmsjwt.spec.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,6 @@
   },
   "devDependencies": {
     "mocha": "^3.2.0",
-    "sinon": "^1.17.7"
+    "sinon": "^4.1.0"
   }
 }

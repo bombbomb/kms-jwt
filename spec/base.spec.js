@@ -7,7 +7,7 @@ var KmsJwt      = require('../index.js'),
 
 var kmsArn = '',
     signingKey = "",
-    pubicKey = 'somesimplekindofkeywhichdoesnothing';
+    publicKey = 'somesimplekindofkeywhichdoesnothing';
 
 describe('Base Tests',function(){
 
@@ -22,7 +22,7 @@ describe('Base Tests',function(){
             keyArn: kmsArn
         });
 
-        kmsJwt.createSigningKey(pubicKey,function(err, data){
+        kmsJwt.createSigningKey(publicKey,function(err, data){
             signingKey = data;
             assert(err == null,'');
             done();
@@ -42,7 +42,7 @@ describe('Base Tests',function(){
             signingKey: signingKey
         });
 
-        var jwtToken = jwt.sign({ user: 'secretMan', abilities: 'breaking things' }, pubicKey);
+        var jwtToken = jwt.sign({ user: 'secretMan', abilities: 'breaking things' }, publicKey);
 
         kmsJwt.verify(jwtToken,function(err,data){
             console.log('fun',data);
